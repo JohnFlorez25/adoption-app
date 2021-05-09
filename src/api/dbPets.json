@@ -1,0 +1,65 @@
+{
+  "dogs": [
+    {
+      "id": "1",
+      "imageUrl": "https://storage.googleapis.com/adoptio-app-ag-2021/dog.png",
+      "imageAlt": "Dog Image",
+      "name": "Rocky",
+      "breed": "Rootweiler"
+    },
+    {
+      "id": "2",
+      "imageUrl": "https://storage.googleapis.com/adoptio-app-ag-2021/dog1.png",
+      "imageAlt": "Dog Image",
+      "name": "Papi",
+      "breed": "Chihuahua"
+    },
+    {
+      "id": "3",
+      "imageUrl": "https://storage.googleapis.com/adoptio-app-ag-2021/dog2.png",
+      "imageAlt": "Dog Image",
+      "name": "Chester",
+      "breed": "Golden retriever"
+    },
+    {
+      "id": "4",
+      "imageUrl": "https://storage.googleapis.com/adoptio-app-ag-2021/dog3.png",
+      "imageAlt": "Dog Image",
+      "name": "Pelusa",
+      "breed": "Bichón frisé"
+    }
+  ],
+  "cats": [
+    {
+      "id": "1",
+      "imageUrl": "https://storage.googleapis.com/adoptio-app-ag-2021/cat.png",
+      "imageAlt": "Cat Image",
+      "name": "Matilde",
+      "breed": "British Shorthair"
+    },
+    {
+      "id": "2",
+      "imageUrl": "https://storage.googleapis.com/adoptio-app-ag-2021/cat1.png",
+      "imageAlt": "Cat Image",
+      "name": "Pelusa",
+      "breed": "Birmano"
+    },
+    {
+      "id": "3",
+      "imageUrl": "https://storage.googleapis.com/adoptio-app-ag-2021/cat2.png",
+      "imageAlt": "Cat Image",
+      "name": "Kity",
+      "breed": "Bombay"
+    },
+    {
+      "id": "4",
+      "imageUrl": "https://storage.googleapis.com/adoptio-app-ag-2021/cat3.png",
+      "imageAlt": "Cat Image",
+      "name": "Lollipop",
+      "breed": "American Cat"
+    }
+  ],
+  "favorites": [
+
+  ]
+}
