@@ -3,11 +3,15 @@ import axios from 'axios';
 import { Flex, Heading, StackDivider, Text, VStack } from "@chakra-ui/react";
 
 import CategorieItem from "../components/CategorieItem";
+import CategorieList from "../components/CategorieList";
+
+localStorage.setItem('petCategorie', "dogs");
 
 export default class AdoptionHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      categorie: localStorage.getItem('petCategorie'),   
       loading: true,
       error: null,
       data: undefined,
@@ -21,7 +25,7 @@ export default class AdoptionHome extends Component {
     })
 
     axios
-        .get("http://localhost:3004/dogs")
+        .get(`http://localhost:3004/${this.state.categorie}`)
         .then( res => {
             this.setState({
                 loading:false,
@@ -40,6 +44,19 @@ export default class AdoptionHome extends Component {
     this.fetchPetsData()
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if (prevState.categorie !== this.state.categorie){
+        this.fetchPetsData()
+    }
+  }
+
+  handleClickSelection = (e, section) => {
+    e.preventDefault()
+    this.setState({
+        categorie: section
+    })
+  }
+
   render() {
 
     if( this.state.loading === true && !this.state.data){
@@ -50,7 +67,6 @@ export default class AdoptionHome extends Component {
         return <h1> Ups! tenemos problemas :/</h1>
     }
 
-    console.log(this.state.data)
 
     return (
       <Flex direction="column" mt="2" alignItems="center">
@@ -65,18 +81,8 @@ export default class AdoptionHome extends Component {
           spacing={4}
           align="center"
         >
-          <CategorieItem />
-          <Heading> Listar las Categorías</Heading>
-          {
-              this.state.data.map( pet => {
-                  return(
-                      <>
-                        <h1>{pet.name}</h1>
-                        <h2>{pet.breed}</h2>
-                      </>
-                  )
-              })
-          }
+          <CategorieItem onClick={this.handleClickSelection} />
+          <CategorieList section={this.state.categorie} categories={this.state.data} />
         </VStack>
       </Flex>
     );

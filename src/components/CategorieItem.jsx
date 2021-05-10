@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { categories } from "../utils/mocks/categories";
 
-const CategorieItem = () => {
+const CategorieItem = (props) => {
   return (
     <Wrap ml={3} spacing="40px" justify="center">
       {categories.map( categorie => {
@@ -28,6 +28,10 @@ const CategorieItem = () => {
             opacity={0.8}
             _hover={{
               opacity: "1",
+            }}
+            onClick={ (e) => {
+              localStorage.setItem('petCategorie', categorie.name)
+              props.onClick(e, categorie.name)
             }}
           >
             <Flex justify={"center"} mt={2} mb={2}>
