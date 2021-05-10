@@ -30,7 +30,7 @@ const theme = extendTheme({
     },
     textStyles: {
       h3: {
-        fontSize: "18px",
+        fontSize: "24px",
         fontWeight: 600,
         lineHeight: "24.55px",
         letterSpacing: "0.15%",
