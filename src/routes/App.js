@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // 4. Importart las páginas (Componentes) de mi aplicación
 import AdoptionHome from "../containers/AdoptionHome";
+import PetHome from '../containers/PetHome.jsx';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <BrowserRouter>
         <Switch>
             <Route exact path="/" component={AdoptionHome} />
+            <Route path="/:section/:petId" component={PetHome} />
         </Switch>
       </BrowserRouter>
     </ChakraProvider>
