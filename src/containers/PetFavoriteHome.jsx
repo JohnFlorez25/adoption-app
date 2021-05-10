@@ -1,51 +1,39 @@
 import React, { Component } from "react";
 import axios from "axios";
+import VolverAtras from "../images/flecha-atras.png";
+import PetFavList from "../components/Pet/PetFavList";
+import { Redirect } from 'react-router-dom';
+
 import {
+  Image,
   Heading,
   Text,
-  Spinner,
-  Center,
-  Box,
   Flex,
   VStack,
   StackDivider,
+  Center,
+  Spinner,
+  Box,
+  Spacer
 } from "@chakra-ui/react";
-import CategorieItem from "../components/CategorieItem";
-import CategorieList from "../components/CategorieList";
-import BottomNavBar from "../components/BottomNavBar";
 
-localStorage.setItem('petCategorie', "dogs");
-
-class AdoptionHome extends Component {
+export class PetFavoriteHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categorie: localStorage.getItem('petCategorie'),
       loading: true,
       error: null,
       data: undefined,
     };
   }
 
-  handleClickSection = (e, section) => {
-    console.log(section);
-    e.preventDefault();
-    this.selectCategorie(section);
-  };
+  handleBack() {
+      
+  }
 
-  selectCategorie = (section) => {
-    this.setState({
-      categorie: section,
-    });
-  };
 
   componentDidMount() {
     this.fetchData();
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.categorie !== this.state.categorie) {
-      this.fetchData();
-    }
   }
 
   //Capturando la data de nuestra petición
@@ -58,7 +46,7 @@ class AdoptionHome extends Component {
     this.axiosCancelSource = axios.CancelToken.source();
 
     axios
-      .get(`http://localhost:3005/${this.state.categorie}`, {
+      .get(`http://localhost:3005/favorites`, {
         cancelToken: this.axiosCancelSource.token,
       })
       .then((res) => {
@@ -105,27 +93,37 @@ class AdoptionHome extends Component {
         </Center>
       );
     }
-
     return (
       <Flex direction="column" mt="2" alignItems="center">
-        <Heading mt="5" mb="5">
-          Adopta una adorable mascota
-        </Heading>
-        <Text mb="5" textStyle="h3">
-          Categoría de mascotas
-        </Text>
+        <Flex mt={5} mb={5} align={"center"} justify={"center"}>
+          <Flex
+            w={16}
+            h={16}
+            mr={10}
+            align={"center"}
+            justify={"center"}
+            color={"white"}
+            rounded={"full"}
+            bg={"#0E172C"}
+            cursor="pointer"
+          >
+            <Image onClick={this.handleBack} w={10} h={10} src={VolverAtras} alt="flecha-atras" />
+          </Flex>
+          <Heading mt="5" mb="5">
+            Mascotas Favoritas
+          </Heading>
+        </Flex>
+
         <VStack
           divider={<StackDivider borderColor="gray.200" />}
           spacing={4}
           align="center"
         >
-          <CategorieItem onClick={this.handleClickSection} />
-          <CategorieList section={this.state.categorie} categories={this.state.data} />
+          <PetFavList pets={this.state.data} />
         </VStack>
-        <BottomNavBar />
       </Flex>
     );
   }
 }
 
-export default AdoptionHome;
+export default PetFavoriteHome;

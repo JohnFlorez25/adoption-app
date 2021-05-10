@@ -9,6 +9,9 @@ import "@fontsource/nunito/600.css";
 import "@fontsource/nunito/400.css";
 //Containers Pages about adoption app
 import AdoptionHome from "../containers/AdoptionHome.jsx";
+//import PetDetail from "../components/PetDetail.jsx";
+import PetHome from '../containers/PetHome.jsx';
+import PetFavoriteHome from "../containers/PetFavoriteHome.jsx";
 
 const theme = extendTheme({
   styles: {
@@ -68,6 +71,8 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={AdoptionHome} />
+          <Route exact path="/:section/:petId"  component={PetHome} />
+          <Route exact path="/favorites"  component={PetFavoriteHome} />
         </Switch>
       </BrowserRouter>
     </ChakraProvider>

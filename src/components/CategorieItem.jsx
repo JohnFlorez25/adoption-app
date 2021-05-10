@@ -13,13 +13,10 @@ import { categories } from "../utils/mocks/categories";
 
 const CategorieItem = (props) => {
   return (
-    <Wrap ml={3} spacing="40px" align="center">
+    <Wrap ml={3} spacing="40px" justify="center">
       {categories.map((categorie) => {
         return (
           <WrapItem
-            _selected={{
-              bg: "tomato",
-            }}
             key={`${categorie.id}-${categorie.name}`}
             w="240px"
             bg={"brand.black"}
@@ -34,6 +31,7 @@ const CategorieItem = (props) => {
               opacity: "1",
             }}
             onClick={(e) => {
+              localStorage.setItem('petCategorie', categorie.name);
               props.onClick(e, categorie.name);
             }}
           >
