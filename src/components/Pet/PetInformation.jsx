@@ -15,6 +15,7 @@ import {
   } from "@chakra-ui/react";
 import PetFav from "./PetFav";
 
+
 const PetInformation = (props) => {
  
     const {

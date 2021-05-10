@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import VolverAtras from "../images/flecha-atras.png";
 import PetFavList from "../components/Pet/PetFavList";
-import { Redirect } from 'react-router-dom';
 
 import {
   Image,
@@ -26,9 +25,9 @@ export class PetFavoriteHome extends Component {
       data: undefined,
     };
   }
-
+  
   handleBack() {
-      
+    this.props.history.push('/');
   }
 
 
@@ -107,7 +106,7 @@ export class PetFavoriteHome extends Component {
             bg={"#0E172C"}
             cursor="pointer"
           >
-            <Image onClick={this.handleBack} w={10} h={10} src={VolverAtras} alt="flecha-atras" />
+            <Image onClick={()=>this.handleBack()} w={10} h={10} src={VolverAtras} alt="flecha-atras" />
           </Flex>
           <Heading mt="5" mb="5">
             Mascotas Favoritas

@@ -12,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 import CategorieItem from "../components/CategorieItem";
 import CategorieList from "../components/CategorieList";
-import BottomNavBar from "../components/BottomNavBar";
 
 localStorage.setItem('petCategorie', "dogs");
 
@@ -122,7 +121,6 @@ class AdoptionHome extends Component {
           <CategorieItem onClick={this.handleClickSection} />
           <CategorieList section={this.state.categorie} categories={this.state.data} />
         </VStack>
-        <BottomNavBar />
       </Flex>
     );
   }

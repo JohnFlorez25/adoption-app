@@ -29,11 +29,11 @@ export class PetFav extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if ((this.state.likeActive===true) && (prevState.likeActive !== this.state.likeActive) ){
-        this.pushData(this.state.likeActive)
+      this.pushData(this.state.likeActive)
     }
 
     if ((this.state.likeActive===false) && (prevState.likeActive !== this.state.likeActive) ){
-        this.popData(this.state.likeActive, this.props.petId)
+      this.popData(this.state.likeActive, this.props.petId)
     }
   }
 

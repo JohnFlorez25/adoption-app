@@ -101,20 +101,16 @@
   ],
   "favorites": [
     {
-      "id": "dog-1",
-      "imageUrl": "https://storage.googleapis.com/adoptio-app-ag-2021/dog.png",
-      "imageAlt": "Dog Image",
-      "name": "Rocky",
-      "breed": "Rootweiler",
+      "id": "cat-1",
+      "imageUrl": "https://storage.googleapis.com/adoptio-app-ag-2021/cat.png",
+      "imageAlt": "Cat Image",
+      "name": "Matilde",
+      "breed": "British Shorthair",
       "details": {
-        "age": "3",
-        "gender": "male",
-        "location": "4250 Colina del Valle, Ciudad de México 235312",
+        "age": "5",
+        "gender": "female",
+        "location": "4140 Parker Rd. Allentown, New Mexico 31134",
         "personality": [
-          {
-            "skill": "Amoroso",
-            "imageSkill": "https://storage.googleapis.com/adoptio-app-ag-2021/amoroso.png"
-          },
           {
             "skill": "Inquieto",
             "imageSkill": "https://storage.googleapis.com/adoptio-app-ag-2021/inquieto.png"
@@ -122,9 +118,13 @@
           {
             "skill": "Juguetón",
             "imageSkill": "https://storage.googleapis.com/adoptio-app-ag-2021/jugueton.png"
+          },
+          {
+            "skill": "Tierno",
+            "imageSkill": "https://storage.googleapis.com/adoptio-app-ag-2021/tierno.png"
           }
         ],
-        "history": "Rocky es un perrito muy lindo y cariñoso, tiene 5 hermanitos más y por cuestiones de espacio y tiempo no podremos cuidar a todos, nuestra misión es encontrar la familia ideal para él y seguro que tú eres la persona indicada."
+        "history": "Matilde es la mejor guarda espaldas, siempre esta ahí para conversar y recibirá cada día con un fuerte cariño. Fue rescatada y busco una persona que le pueda dar todo el amor que ella necesita."
       }
     }
   ]

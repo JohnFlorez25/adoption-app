@@ -1,4 +1,9 @@
 import React from "react";
+//Containers Pages about adoption app
+import AdoptionHome from "../containers/AdoptionHome.jsx";
+import PetHome from "../containers/PetHome.jsx";
+import PetFavoriteHome from "../containers/PetFavoriteHome.jsx";
+
 //Import in relation with Chakra UI
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -7,11 +12,7 @@ import "@fontsource/nunito/800.css";
 import "@fontsource/nunito/700.css";
 import "@fontsource/nunito/600.css";
 import "@fontsource/nunito/400.css";
-//Containers Pages about adoption app
-import AdoptionHome from "../containers/AdoptionHome.jsx";
-//import PetDetail from "../components/PetDetail.jsx";
-import PetHome from '../containers/PetHome.jsx';
-import PetFavoriteHome from "../containers/PetFavoriteHome.jsx";
+import Layout from "../components/Layout.jsx";
 
 const theme = extendTheme({
   styles: {
@@ -70,9 +71,15 @@ const App = () => {
     <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={AdoptionHome} />
-          <Route exact path="/:section/:petId"  component={PetHome} />
-          <Route exact path="/favorites"  component={PetFavoriteHome} />
+          <Route path="/:section/:petId" component={PetHome} />
+          <Route>
+            <Layout>
+              <Switch>
+                <Route exact path="/" component={AdoptionHome} />
+                <Route path="/favorites" component={PetFavoriteHome} />
+              </Switch>
+            </Layout>
+          </Route>
         </Switch>
       </BrowserRouter>
     </ChakraProvider>
