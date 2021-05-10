@@ -16,6 +16,7 @@ const CategorieItem = () => {
       {categories.map( categorie => {
         return (
           <WrapItem
+            key={`${categorie.section}-${categorie.name}`}
             w="240px"
             bg={"brand.black"}
             boxShadow={"2xl"}

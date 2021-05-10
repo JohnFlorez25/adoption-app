@@ -28,10 +28,10 @@ export default class AdoptionHome extends Component {
                 data : res.data
             })
         })
-        .catch( err => {
+        .catch( error => {
             this.setState({
                 loading: false,
-                error: err
+                error: error
             })
         }) 
   }
@@ -41,6 +41,17 @@ export default class AdoptionHome extends Component {
   }
 
   render() {
+
+    if( this.state.loading === true && !this.state.data){
+        return <h1>Cargando...</h1>
+    }
+
+    if(this.state.error){
+        return <h1> Ups! tenemos problemas :/</h1>
+    }
+
+    console.log(this.state.data)
+
     return (
       <Flex direction="column" mt="2" alignItems="center">
         <Heading mt="5" mb="5">
@@ -56,6 +67,16 @@ export default class AdoptionHome extends Component {
         >
           <CategorieItem />
           <Heading> Listar las Categorías</Heading>
+          {
+              this.state.data.map( pet => {
+                  return(
+                      <>
+                        <h1>{pet.name}</h1>
+                        <h2>{pet.breed}</h2>
+                      </>
+                  )
+              })
+          }
         </VStack>
       </Flex>
     );
